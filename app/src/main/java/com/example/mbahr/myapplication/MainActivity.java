@@ -32,6 +32,8 @@ public class MainActivity extends Activity {
 
         tanimla();
         add();
+
+        Toast.makeText(this, "asdasdasd", Toast.LENGTH_SHORT).show();
     }
 
     public void tanimla() {

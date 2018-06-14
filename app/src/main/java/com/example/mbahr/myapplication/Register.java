@@ -17,7 +17,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends Activity {
+public class Register extends Activity {
 
     AutoCompleteTextView email,name, surname,sifre;
     Button btn;
@@ -33,8 +33,6 @@ public class MainActivity extends Activity {
         tanimla();
         add();
 
-        Toast.makeText(this, "asdasdasd", Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "yeni eklendi burasıııı", Toast.LENGTH_SHORT).show();
     }
 
     public void tanimla() {
@@ -61,7 +59,7 @@ public class MainActivity extends Activity {
                     istek(emaill,isim,soyisim,sifree);
                     deleteFromEdittext();
                 } else {
-                    Toast.makeText(MainActivity.this, "Lütfen Tüm Alanları Doldurunuz...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, "Lütfen Tüm Alanları Doldurunuz...", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -83,16 +81,16 @@ public class MainActivity extends Activity {
         x.enqueue(new Callback<Sonuc>() {
             @Override
             public void onResponse(Call<Sonuc> call, Response<Sonuc> response) {
-                Toast.makeText(MainActivity.this, "" + response.body().getResult(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Register.this, "" + response.body().getResult(), Toast.LENGTH_SHORT).show();
                 if (response.body().getResult().equals("Tebrikler Basariyla Kayit Oldunuz ...")) {
-                    Intent ıntent = new Intent(getApplicationContext(), Main2Activity.class);
+                    Intent ıntent = new Intent(getApplicationContext(), Home.class);
                     startActivity(ıntent);
                 }
             }
             @Override
             public void onFailure(Call<Sonuc> call, Throwable t) {
 
-                Toast.makeText(MainActivity.this, "hata olustu", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Register.this, "hata olustu", Toast.LENGTH_SHORT).show();
 
             }
         });

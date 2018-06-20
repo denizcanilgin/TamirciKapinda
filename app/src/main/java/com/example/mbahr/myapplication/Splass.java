@@ -35,6 +35,7 @@ public class Splass extends Activity{
                 finally {
 
                     finish();
+                    //eeeeeeeeedeniz can ılgınnnnnn
 
                 }
             }

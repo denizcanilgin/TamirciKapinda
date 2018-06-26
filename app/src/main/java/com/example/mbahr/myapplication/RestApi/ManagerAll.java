@@ -19,4 +19,12 @@ public class ManagerAll extends BaseManager {
         return x;
     }
 
+    public Call<Sonuc> login(String login_email,String login_sifre)
+    {
+
+        Call<Sonuc> login = getRestApi().authenticate(login_email,login_sifre);
+        return login;
+
+    }
+
 }

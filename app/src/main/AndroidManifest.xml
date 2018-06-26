@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mbahr.myapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
 
     <application
         android:allowBackup="true"
@@ -11,18 +15,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".Splass">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action
+                    android:name="android.intent.action.MAIN"
+                    android:windowSoftInputMode="stateVisible|adjustPan" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Login"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".Register"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".Home"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
 
-        <activity android:name=".Login"/>
-        <activity android:name=".Register"/>
-        <activity android:name=".Home"/>
+        <activity
+            android:name=".Fragments.MainFragment"
+            android:label="@string/title_activity_request_infos_fragment"
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="DuplicateActivity,InnerclassSeparator"></activity>
     </application>
 
 </manifest>

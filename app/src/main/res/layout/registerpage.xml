@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:windowSoftInputMode="stateVisible|adjustPan"
     android:layout_height="match_parent"
-    android:windowSoftInputMode="stateVisible|adjustPan">
+    tools:context=".Register">
+
 
 
     <ImageView
@@ -22,65 +25,36 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
             android:background="@drawable/trans_white_rectangle"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="5dp"
                 android:gravity="center"
                 android:paddingEnd="10dp"
                 android:paddingStart="10dp"
                 android:paddingTop="10dp"
-                android:text="Tamirciniz Bir Tık Uzakta"
+                android:text="Hadi Başlayalım"
                 android:textColor="@color/white"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="30dp"
                 android:gravity="center"
                 android:paddingEnd="10dp"
                 android:paddingStart="10dp"
-                android:text="Evinizdeki ve iş yerinizdeki arızaları tamir ettirmek için çözümünüz net."
-                android:textColor="@color/white"
-                android:textSize="11sp" />
-
-            <AutoCompleteTextView
-                android:id="@+id/userCPassword"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginStart="15dp"
-                android:background="@drawable/rounded_red"
-                android:drawableLeft="@drawable/ic_google"
-                android:drawablePadding="5dp"
-                android:hint="Gmail ile devam et"
-                android:inputType="textPassword"
-                android:paddingLeft="10dp"
-                android:paddingStart="10dp"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:gravity="center"
-                android:paddingEnd="10dp"
-                android:paddingStart="10dp"
-                android:text="----- Veya -----"
+                android:text="Başlamak için doldurulması gereken bazı detaylar..."
                 android:textColor="@color/white"
                 android:textSize="12sp" />
 
             <AutoCompleteTextView
-                android:id="@+id/login_Email"
+                android:id="@+id/reg_userEmail"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginBottom="10dp"
@@ -90,12 +64,41 @@
                 android:drawableLeft="@drawable/ic_ic_user_color"
                 android:drawablePadding="5dp"
                 android:hint="E-mail"
-                android:paddingLeft="10dp"
                 android:paddingStart="10dp"
                 android:textSize="14sp" />
+            <AutoCompleteTextView
+                android:id="@+id/reg_userName"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:background="@drawable/rounded_white"
+                android:drawableLeft="@drawable/ic_ic_user_color"
+                android:drawablePadding="5dp"
+                android:hint="Adınızı Giriniz"
+                android:paddingStart="10dp"
+                android:textSize="14sp"
+                android:paddingLeft="10dp" />
 
             <AutoCompleteTextView
-                android:id="@+id/userPassword"
+                android:id="@+id/reg_userSurname"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:background="@drawable/rounded_white"
+                android:drawableLeft="@drawable/ic_ic_user_color"
+                android:drawablePadding="5dp"
+                android:hint="Soyadınızı Giriniz"
+                android:paddingStart="10dp"
+                android:textSize="14sp"
+
+                android:paddingLeft="10dp" />
+
+            <AutoCompleteTextView
+                android:id="@+id/reg_userPassword"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginBottom="10dp"
@@ -106,42 +109,33 @@
                 android:drawablePadding="5dp"
                 android:hint="Şifre"
                 android:inputType="textPassword"
-                android:paddingLeft="10dp"
                 android:paddingStart="10dp"
+                android:textSize="14sp"
+                android:paddingLeft="10dp" />
 
-                android:textSize="14sp" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:button="@drawable/radio_button"
+                android:paddingLeft="5dp"
+                android:text="Koşulları ve şartları kabul ediyorum."
+                android:textColor="@color/white"
+                android:textSize="13sp" />
 
             <Button
-                android:id="@+id/login_button"
+                android:id="@+id/reg_button"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/reg_button3"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/reg_button"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="GİRİŞ YAP"
+                android:text="KAYDOL"
                 android:textColor="@color/white"
                 android:textStyle="normal" />
-
-            <Button
-                android:id="@+id/register_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="1dp"
-                android:background="@drawable/reg_button2"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:text="Kayıt ol"
-                android:textColor="@color/white"
-                android:textSize="12dp"
-                android:textStyle="normal" />
-
-            />
         </LinearLayout>
     </ScrollView>
-
 </RelativeLayout>

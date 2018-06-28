@@ -1,4 +1,4 @@
-package com.example.mbahr.myapplication;
+package com.example.mbahr.myapplication.menu_activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,11 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Toast;
+
 
 import com.example.mbahr.myapplication.Fragments.MainFragment;
+import com.example.mbahr.myapplication.R;
 
-public class Home extends AppCompatActivity {
+public class how_to_use extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
@@ -21,17 +22,16 @@ public class Home extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home);
+        setContentView(R.layout.activity_how_to_use);
+
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
-
-        mDrawerLayout = findViewById(R.id.nav_menu_drawer_layout);
-        mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        mDrawerLayout = findViewById(R.id.nav_menu_drawer_layout4);
+        mToggle = new ActionBarDrawerToggle(this,mDrawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         NavigationView navigationView = findViewById(R.id.nav_menu);
         navigationView.setNavigationItemSelectedListener(
@@ -44,14 +44,11 @@ public class Home extends AppCompatActivity {
                         switch (id){
 
                             case R.id.text0:
-
-                                //Do nothing when click on current page
-
-                                break;
+                                Intent intent_HomePage = new Intent(getApplicationContext(),com.example.mbahr.myapplication.Home.class);
+                                startActivity(intent_HomePage);
 
                             case R.id.text1:
-                                Intent intent_howToUse = new Intent(getApplicationContext(),com.example.mbahr.myapplication.menu_activities.how_to_use.class);
-                                startActivity(intent_howToUse);
+                                mDrawerLayout.closeDrawers();
                                 // Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.text2:
@@ -62,16 +59,15 @@ public class Home extends AppCompatActivity {
                             case R.id.text3:
                                 Intent intent_contactUs = new Intent(getApplicationContext(),com.example.mbahr.myapplication.menu_activities.contact_us.class);
                                 startActivity(intent_contactUs);
-                                //Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
+                               // Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.text4:
-                                // Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.text5:
-                                Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
-                                Intent intent_find_us_on_socialmedia = new Intent(getApplicationContext(),com.example.mbahr.myapplication.menu_activities.find_us_on_socialmedia.class);
-                                startActivity(intent_find_us_on_socialmedia);
-
+                                // Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
+                                Intent intent_socialMedia = new Intent(getApplicationContext(),com.example.mbahr.myapplication.menu_activities.find_us_on_socialmedia.class);
+                                startActivity(intent_socialMedia);
                                 break;
 
                         }
@@ -87,7 +83,6 @@ public class Home extends AppCompatActivity {
                         return true;
                     }
                 });
-
     }
 
     @Override
@@ -102,8 +97,4 @@ public class Home extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), MainFragment.class);
         startActivity(intent);
     }
-
-
-
-
 }

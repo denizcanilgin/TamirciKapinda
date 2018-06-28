@@ -15,6 +15,7 @@ public interface RestApi {
     @POST("/sartliekle.php")
     Call<Sonuc> addUser(@Field("email") String email, @Field("isim") String ad, @Field("soyad") String soyad, @Field("sifre") String sifre);
 
+
     @GET("/login.php")
     Call<Sonuc> authenticate(@Query("email") String login_email, @Query("sifre") String login_sifre);
 }

@@ -1,7 +1,17 @@
 <resources>
-    <string name="app_name">ARIZAM</string>
+    <string name="app_name">Tamirci Kapında!</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_request_infos_fragment">RequestInfosFragment</string>
+    <string name="Aç">open</string>
+    <string name="Kapat">close</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="navigation_drawer_open">Açık</string>
+    <string name="title_activity_how_to_use">how_to_use</string>
+    <string name="title_activity_find_us__on_socialmedia">find_us__on_socialmedia</string>
 </resources>

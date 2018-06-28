@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/text0"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="ANA SAYFA" />
+
+        <item
+            android:id="@+id/text1"
+            android:icon="@drawable/how_to_use_icon"
+            android:title="NASIL KULLANILIR ?" />
+        <item
+            android:id="@+id/text2"
+            android:icon="@drawable/about_us_icon"
+            android:title="HAKKIMIZDA" />
+        <item
+            android:id="@+id/text3"
+            android:icon="@drawable/contact_us_baloon"
+            android:title="BİZE ULAŞIN" />
+        <item
+            android:id="@+id/text4"
+            android:icon="@drawable/grade_star_icon"
+            android:title="5 YILDIZ VERİN" />
+        <item
+            android:id="@+id/text5"
+            android:icon="@drawable/find_us_on_social_media_icon"
+            android:title="SOSYAL MEDYADA BULUN" />
+    </group>
+</menu>

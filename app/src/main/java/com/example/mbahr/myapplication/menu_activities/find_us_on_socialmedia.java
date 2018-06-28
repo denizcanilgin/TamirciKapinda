@@ -1,6 +1,8 @@
-package com.example.mbahr.myapplication;
+package com.example.mbahr.myapplication.menu_activities;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -11,27 +13,30 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+
 import com.example.mbahr.myapplication.Fragments.MainFragment;
+import com.example.mbahr.myapplication.R;
 
-public class Home extends AppCompatActivity {
-
+public class find_us_on_socialmedia extends AppCompatActivity {
+//
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home);
+        setContentView(R.layout.activity_find_us_on_socialmedia);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
 
-        mDrawerLayout = findViewById(R.id.nav_menu_drawer_layout);
-        mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        mDrawerLayout = findViewById(R.id.nav_menu_drawer_layout5);
+        mToggle = new ActionBarDrawerToggle(this,mDrawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         NavigationView navigationView = findViewById(R.id.nav_menu);
         navigationView.setNavigationItemSelectedListener(
@@ -44,11 +49,9 @@ public class Home extends AppCompatActivity {
                         switch (id){
 
                             case R.id.text0:
-
-                                //Do nothing when click on current page
-
+                                Intent intent_HomePage = new Intent(getApplicationContext(),com.example.mbahr.myapplication.Home.class);
+                                startActivity(intent_HomePage);
                                 break;
-
                             case R.id.text1:
                                 Intent intent_howToUse = new Intent(getApplicationContext(),com.example.mbahr.myapplication.menu_activities.how_to_use.class);
                                 startActivity(intent_howToUse);
@@ -60,18 +63,14 @@ public class Home extends AppCompatActivity {
                                 //Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.text3:
-                                Intent intent_contactUs = new Intent(getApplicationContext(),com.example.mbahr.myapplication.menu_activities.contact_us.class);
-                                startActivity(intent_contactUs);
-                                //Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
-                                break;
-                            case R.id.text4:
+                                mDrawerLayout.closeDrawers();
                                 // Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
                                 break;
-                            case R.id.text5:
+                            case R.id.text4:
                                 Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
-                                Intent intent_find_us_on_socialmedia = new Intent(getApplicationContext(),com.example.mbahr.myapplication.menu_activities.find_us_on_socialmedia.class);
-                                startActivity(intent_find_us_on_socialmedia);
-
+                                break;
+                            case R.id.text5:
+                                // Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
                                 break;
 
                         }
@@ -103,7 +102,23 @@ public class Home extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openInstagram(){
+
+        Uri uri = Uri.parse("http://instagram.com/_u/denizcanilgin");
+        Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
+
+        likeIng.setPackage("com.instagram.android");
+
+        try {
+            startActivity(likeIng);
+        } catch (ActivityNotFoundException e) {
+            startActivity(new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("http://instagram.com/denizcanilgin")));
+        }
+
+    }
 
 
 
-}
+    }
+

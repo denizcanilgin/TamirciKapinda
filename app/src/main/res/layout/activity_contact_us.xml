@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Use DrawerLayout as root container for activity -->
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_menu_drawer_layout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:padding="10dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/lightgray"
+                android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Bize Ulaşın"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/logo1"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:src="@color/lightgray"/>
+
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/To_Text"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp" />
+
+
+                <AutoCompleteTextView
+                    android:id="@+id/userTopic"
+                    android:drawableStart="@drawable/ic_stars_black_24dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:hint="Başlık"
+                    android:background="@drawable/rounded_white"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:textSize="14sp"
+                    android:drawablePadding="5dp"
+                    android:paddingStart="10dp"
+
+                    android:layout_marginTop="20dp"
+                    android:paddingLeft="10dp" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/userMessage"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:hint="Mesajınızı Giriniz"
+                    android:background="@drawable/rounded_white"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:textSize="14sp"
+                    android:drawablePadding="5dp"
+                    android:paddingStart="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:drawableStart="@drawable/ic_mode_edit_black_24dp"
+                    android:paddingLeft="10dp" />
+
+                <Button
+                    android:id="@+id/btnOK"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/rounded_primarycolor"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:layout_gravity="end"
+                    android:text="Send" />
+
+
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_view" />
+
+</android.support.v4.widget.DrawerLayout>

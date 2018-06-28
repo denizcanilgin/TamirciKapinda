@@ -4,8 +4,8 @@
     <color name="red">#e81400</color>
     <color name="black">#000000</color>
 
-    <color name="colorPrimary">#fcb040</color>
-    <color name="colorPrimaryDark">#f05c2c</color>
+    <color name="colorPrimary">#e2574c</color>
+    <color name="colorPrimaryDark">#373636</color>
     <color name="backgroundcolor">#fcfcfc</color>
     <color name="lightgray">#ededed</color>
     <color name="deeppurple">#7c4dff</color>

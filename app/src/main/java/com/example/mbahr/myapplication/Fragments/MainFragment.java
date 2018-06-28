@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -14,7 +15,7 @@ import com.example.mbahr.myapplication.Home;
 import com.example.mbahr.myapplication.R;
 
 
-public class MainFragment extends AppCompatActivity implements Fragment1.onSomeEventListener {
+public class MainFragment extends AppCompatActivity {
 
     int CountOfPush = 0;
     private Button back_btn;
@@ -22,6 +23,7 @@ public class MainFragment extends AppCompatActivity implements Fragment1.onSomeE
     private Button back_toHome;
     int problem_lenght = 3;
     int lenght;
+    public GlobalClass globalVariable;
 
     public String text;
 
@@ -34,6 +36,9 @@ public class MainFragment extends AppCompatActivity implements Fragment1.onSomeE
         ForwardClick();
         BackClick();
         BackToHomeClick();
+
+
+        globalVariable = (GlobalClass) getApplicationContext();
 
     }
 
@@ -51,20 +56,36 @@ public class MainFragment extends AppCompatActivity implements Fragment1.onSomeE
         forward_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if (0 <= CountOfPush && CountOfPush < 2) {
                     CountOfPush++;
 
                     if (CountOfPush == 0) {
                         DisplayFirstFragment(null);
                         forward_btn.setText("İLERİ");
+
                     } else if (CountOfPush == 1) {
 
+                        String text = GlobalClass.getProblem();
 
-                        DisplaySecondFragment(null);
-                        back_btn.setVisibility(View.VISIBLE);
-                        forward_btn.setText("TAMAMLA");
+                        if (text == null) {
+                            CountOfPush = 0;
+                            Toast.makeText(getApplicationContext(), "Lütfen Daha Detaylı Bilgi Giriniz !!!", Toast.LENGTH_SHORT).show();
+                        } else if (text.length() < 5) {
+                            CountOfPush = 0;
+                            Toast.makeText(getApplicationContext(), "Lütfen Daha Detaylı Bilgi Giriniz !!!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            DisplaySecondFragment(null);
+                            back_btn.setVisibility(View.VISIBLE);
+                            forward_btn.setText("TAMAMLA");
+                        }
 
                     } else if (CountOfPush == 2) {
+
+                        istek();
+                        String adres = GlobalClass.getAdress();
+                        String phone = GlobalClass.getPhoneNumber();
+                        Log.i("gelendegerrrrrr", adres + phone);
                         DisplayThirdFragment(null);
                         back_btn.setVisibility(View.INVISIBLE);
                         forward_btn.setVisibility(View.INVISIBLE);
@@ -72,22 +93,21 @@ public class MainFragment extends AppCompatActivity implements Fragment1.onSomeE
                     }
 
                 }
+
             }
+
         });
 
     }
 
-    @Override
-    public String someEvent(String s) {
-        String text = s;
+    public void istek() {
 
-        if (text.length() <5)
-        {
-            Intent intent = new Intent(getApplicationContext(), MainFragment.class);
-            startActivity(intent);
-            Toast.makeText(this, "Lütfen Daha Detaylı Bilgi Giriniz !!!", Toast.LENGTH_SHORT).show();
-        }
-        return text;
+        String a = GlobalClass.getAdress();
+        String b = GlobalClass.getProblem();
+        String c = GlobalClass.getPhoneNumber();
+        String d = GlobalClass.getLogin_email();
+        String e = GlobalClass.getLogin_password();
+        Log.i("gelenAdres", d + " " + e + " " + b + " " + a + " " + c);
     }
 
 
@@ -100,6 +120,7 @@ public class MainFragment extends AppCompatActivity implements Fragment1.onSomeE
                     CountOfPush--;
 
                     if (CountOfPush == 0) {
+                        GlobalClass.setProblem("");
                         DisplayFirstBackFragment(null);
                         back_btn.setVisibility(View.INVISIBLE);
                         forward_btn.setText("İLERİ");

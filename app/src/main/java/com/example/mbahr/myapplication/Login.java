@@ -11,6 +11,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.mbahr.myapplication.Fragments.GlobalClass;
 import com.example.mbahr.myapplication.Models.Sonuc;
 import com.example.mbahr.myapplication.RestApi.ManagerAll;
 
@@ -22,6 +23,7 @@ public class Login extends Activity {
 
     private Button login, register_button;
     private AutoCompleteTextView login_email, login_sifre;
+    public GlobalClass globalClass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +37,8 @@ public class Login extends Activity {
         login_control();
         RegisterActivity();
 
-
-
-    }
+        globalClass = ((GlobalClass) getApplicationContext());
+}
 
     public void tanimla() {
 
@@ -92,6 +93,9 @@ public class Login extends Activity {
     }
 
     public void login_istek(String login_email, String login_sifre) {
+
+        GlobalClass.setLogin_email(login_email);
+        GlobalClass.setLogin_password(login_sifre);
 
         Call<Sonuc> login_process = ManagerAll.getInstance().login(login_email, login_sifre);
         login_process.enqueue(new Callback<Sonuc>() {

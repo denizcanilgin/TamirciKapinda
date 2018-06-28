@@ -13,7 +13,7 @@
 
 
         <AutoCompleteTextView
-            android:id="@+id/usersProblem"
+            android:id="@+id/usersAdress"
             android:layout_marginTop="20dp"
             android:inputType="textMultiLine"
             android:layout_width="match_parent"

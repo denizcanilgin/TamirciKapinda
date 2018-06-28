@@ -9,6 +9,9 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,27 +32,12 @@ public class Fragment1 extends android.support.v4.app.Fragment {
 
     private View view;
     public  AutoCompleteTextView Entered_Problem;
-    private int getTextProbLength;
+    private String getTextProb;
     private Button uploaded_image;
     private ImageView ivImage;
     private String userChoosenTask;
     private int REQUEST_CAMERA = 0, SELECT_FILE = 1;
-
-    public interface onSomeEventListener {
-        String someEvent(String s);
-    }
-
-    onSomeEventListener someEventListener;
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            someEventListener = (onSomeEventListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString() + " must implement onSomeEventListener");
-        }
-    }
+    public GlobalClass globalClass;
 
 
     @Override
@@ -58,18 +46,30 @@ public class Fragment1 extends android.support.v4.app.Fragment {
         view = inflater.inflate(R.layout.fragment_fragment1, container, false);
         Entered_Problem = view.findViewById(R.id.EnterYourProblem);
 
-        Entered_Problem.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+          globalClass = ((GlobalClass) getActivity().getApplicationContext());
+
+
+        Entered_Problem.addTextChangedListener(new TextWatcher() {
+
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus)
-                {
-                    String a = Entered_Problem.getText().toString();
-                    someEventListener.someEvent(""+a);
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                getTextProb = Entered_Problem.getText().toString();
+                GlobalClass.setProblem(getTextProb);
+                Log.i("gelendegerrr","focus : "+getTextProb);
+            }
 
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
+
 
         uploaded_image = view.findViewById(R.id.uploaded_image);
         ivImage = view.findViewById(R.id.ivImage);
@@ -103,27 +103,27 @@ public class Fragment1 extends android.support.v4.app.Fragment {
     }
 
     private void selectImage() {
-        final CharSequence[] items = { "Take Photo", "Choose from Library",
-                "Cancel" };
+        final CharSequence[] items = { "Fotoğraf Çek", "Galeri den Seç",
+                "İptal" };
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setTitle("Add Photo!");
+        builder.setTitle("Fotoğraf Ekle!");
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int item) {
                 boolean result=Utility.checkPermission(getContext());
 
-                if (items[item].equals("Take Photo")) {
-                    userChoosenTask ="Take Photo";
+                if (items[item].equals("Fotoğraf Çek")) {
+                    userChoosenTask ="Fotoğraf Çek";
                     if(result)
                         cameraIntent();
 
-                } else if (items[item].equals("Choose from Library")) {
-                    userChoosenTask ="Choose from Library";
+                } else if (items[item].equals("Galeri den Seç")) {
+                    userChoosenTask ="Galeri den Seç";
                     if(result)
                         galleryIntent();
 
-                } else if (items[item].equals("Cancel")) {
+                } else if (items[item].equals("İptal")) {
                     dialog.dismiss();
                 }
             }

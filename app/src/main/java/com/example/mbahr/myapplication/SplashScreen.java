@@ -9,7 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-public class Splass extends Activity{
+public class SplashScreen extends Activity{
     private ImageView iv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

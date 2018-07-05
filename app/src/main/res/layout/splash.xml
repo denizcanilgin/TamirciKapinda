@@ -3,7 +3,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
+    android:background="@drawable/back2"
 
     >
 
@@ -17,11 +17,10 @@
 
         <ImageView
             android:id="@+id/iv"
-            android:layout_marginStart="10dp"
-            android:layout_width="360dp"
-            android:layout_height="240dp"
+            android:layout_width="250dp"
+            android:layout_height="150dp"
             android:layout_gravity="center"
-            android:src="@drawable/tamircikapindalogo" />
+            android:src="@drawable/tamircikapindalogo_white" />
 
 
         />

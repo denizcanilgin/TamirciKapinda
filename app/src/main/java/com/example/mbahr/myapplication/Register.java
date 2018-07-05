@@ -2,7 +2,9 @@ package com.example.mbahr.myapplication;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -10,6 +12,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.mbahr.myapplication.Fragments.GlobalClass;
 import com.example.mbahr.myapplication.Models.Sonuc;
 import com.example.mbahr.myapplication.RestApi.ManagerAll;
 
@@ -19,8 +22,11 @@ import retrofit2.Response;
 
 public class Register extends Activity {
 
-    AutoCompleteTextView email,name, surname,sifre;
+    AutoCompleteTextView email, name, surname, sifre;
     Button btn;
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +38,9 @@ public class Register extends Activity {
 
         tanimla();
         add();
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());//preferences objesi
+        editor = preferences.edit();
 
     }
 
@@ -55,8 +64,12 @@ public class Register extends Activity {
                 String soyisim = surname.getText().toString();
                 String sifree = sifre.getText().toString();
 
+
+                GlobalClass.setRegister_email(emaill);
+                GlobalClass.setRegister_password(sifree);
+
                 if (!emaill.equals("") && !isim.equals("") && !soyisim.equals("") && !sifree.equals("")) {
-                    istek(emaill,isim,soyisim,sifree);
+                    istek(emaill, isim, soyisim, sifree);
                     deleteFromEdittext();
                 } else {
                     Toast.makeText(Register.this, "Lütfen Tüm Alanları Doldurunuz...", Toast.LENGTH_SHORT).show();
@@ -76,17 +89,31 @@ public class Register extends Activity {
     }
 
 
-    public void istek(String email,String ad, String soyad,String sifre) {
-        Call<Sonuc> x = ManagerAll.getInstance().ekle(email,ad,soyad,sifre);
+    public void istek(String email, String ad, String soyad, String sifre) {
+
+        String m_email = txtMesaj_TextChanged_3(email);
+        final String m_ad = txtMesaj_TextChanged_3(ad);
+        final String m_soyad = txtMesaj_TextChanged_3(soyad);
+        String m_sifre = txtMesaj_TextChanged_3(sifre);
+
+
+        Call<Sonuc> x = ManagerAll.getInstance().ekle(m_email, m_ad, m_soyad, m_sifre);
         x.enqueue(new Callback<Sonuc>() {
             @Override
             public void onResponse(Call<Sonuc> call, Response<Sonuc> response) {
                 Toast.makeText(Register.this, "" + response.body().getResult(), Toast.LENGTH_SHORT).show();
                 if (response.body().getResult().equals("Tebrikler Basariyla Kayit Oldunuz ...")) {
-                    Intent ıntent = new Intent(getApplicationContext(), Home.class);
+
+                    editor.putString("name", m_ad);
+                    editor.putString("surname", m_soyad);
+
+                    editor.commit();
+
+                    Intent ıntent = new Intent(getApplicationContext(), Login.class);
                     startActivity(ıntent);
                 }
             }
+
             @Override
             public void onFailure(Call<Sonuc> call, Throwable t) {
 
@@ -94,6 +121,29 @@ public class Register extends Activity {
 
             }
         });
+
+    }
+
+    private String txtMesaj_TextChanged_3(String s) {
+
+        String text = s;
+        text = text.replace("ü", "u");
+        text = text.replace("ı", "i");
+        text = text.replace("ö", "o");
+        text = text.replace("ü", "u");
+        text = text.replace("ş", "s");
+        text = text.replace("ğ", "g");
+        text = text.replace("ç", "c");
+        text = text.replace("Ü", "U");
+        text = text.replace("İ", "I");
+        text = text.replace("Ö", "O");
+        text = text.replace("Ü", "U");
+        text = text.replace("Ş", "S");
+        text = text.replace("Ğ", "G");
+        text = text.replace("Ç", "C");
+
+
+        return text;
 
     }
 }

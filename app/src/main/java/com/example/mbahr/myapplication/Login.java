@@ -2,7 +2,9 @@ package com.example.mbahr.myapplication;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -25,6 +27,9 @@ public class Login extends Activity {
     private AutoCompleteTextView login_email, login_sifre;
     public GlobalClass globalClass;
 
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +43,18 @@ public class Login extends Activity {
         RegisterActivity();
 
         globalClass = ((GlobalClass) getApplicationContext());
+        preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());//preferences objesi
+        editor = preferences.edit();
+
+        String login_email = preferences.getString("email", "");
+        String login_sifre = preferences.getString("sifre", "");
+
+        if(preferences.getBoolean("login", false)){
+            Intent i = new Intent(getApplicationContext(),Home.class);
+            startActivity(i);
+            finish();
+        }
+        Log.i("valueeee",login_email+login_sifre);
 }
 
     public void tanimla() {
@@ -56,6 +73,8 @@ public class Login extends Activity {
             public void onClick(View view) {
                 Intent intent = new Intent(Login.this,Register.class);
                 startActivity(intent);
+                GlobalClass.setLogin_email(null);
+                GlobalClass.setLogin_password(null);
             }
 
         });
@@ -74,7 +93,9 @@ public class Login extends Activity {
 
                 if (!login_email_control.equals("") && !login_sifre_control.equals("")) {
 
-                    login_istek(login_email_control, login_sifre_control);
+                    String log_email =txtMesaj_TextChanged_3(login_email_control);
+                    String log_password = txtMesaj_TextChanged_3(login_sifre_control);
+                    login_istek(log_email, log_password);
                     deleteFromEdittext();
 
                 } else {
@@ -85,6 +106,30 @@ public class Login extends Activity {
         });
     }
 
+    private String txtMesaj_TextChanged_3(String s)
+    {
+
+        String text = s;
+        text = text.replace("ü", "u");
+        text = text.replace("ı", "i");
+        text = text.replace("ö", "o");
+        text = text.replace("ü", "u");
+        text = text.replace("ş", "s");
+        text = text.replace("ğ", "g");
+        text = text.replace("ç", "c");
+        text = text.replace("Ü", "U");
+        text = text.replace("İ", "I");
+        text = text.replace("Ö", "O");
+        text = text.replace("Ü", "U");
+        text = text.replace("Ş", "S");
+        text = text.replace("Ğ", "G");
+        text = text.replace("Ç", "C");
+
+
+        return text;
+
+    }
+
     public void deleteFromEdittext() {
 
         login_email.setText("");
@@ -92,10 +137,12 @@ public class Login extends Activity {
 
     }
 
-    public void login_istek(String login_email, String login_sifre) {
+    public void login_istek(final String login_email, final String login_sifre) {
 
         GlobalClass.setLogin_email(login_email);
         GlobalClass.setLogin_password(login_sifre);
+
+
 
         Call<Sonuc> login_process = ManagerAll.getInstance().login(login_email, login_sifre);
         login_process.enqueue(new Callback<Sonuc>() {
@@ -104,6 +151,12 @@ public class Login extends Activity {
 
                 Toast.makeText(Login.this, "" + response.body().getResult(), Toast.LENGTH_SHORT).show();
                 if (response.body().getResult().equals("Tebrikler Basariyla Giris Yaptiniz")) {
+
+
+                    editor.putString("email", login_email);
+                    editor.putString("sifre", login_sifre);
+                    editor.putBoolean("login", true);
+                    editor.commit();
                     Intent ıntent = new Intent(getApplicationContext(), Home.class);
                     startActivity(ıntent);
                 }
@@ -112,7 +165,7 @@ public class Login extends Activity {
 
             @Override
             public void onFailure(Call<Sonuc> call, Throwable t) {
-                Toast.makeText(Login.this, "" + call, Toast.LENGTH_LONG).show();
+                Toast.makeText(Login.this, "Lütfen Tekrar Giriş Yapmayı Deneyiniz" , Toast.LENGTH_LONG).show();
                 Log.d("errorr", "" + call);
             }
         });

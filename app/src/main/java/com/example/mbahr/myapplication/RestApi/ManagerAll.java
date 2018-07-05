@@ -27,4 +27,13 @@ public class ManagerAll extends BaseManager {
 
     }
 
+    public Call<Sonuc> addProblem(String email, String sifre, String problem, String fotograf, String adres, String telefon)
+
+    {
+
+        Call<Sonuc> addproblemm = getRestApi().problemrecord(email,sifre,problem,fotograf,adres,telefon);
+        return addproblemm;
+
+    }
+
 }

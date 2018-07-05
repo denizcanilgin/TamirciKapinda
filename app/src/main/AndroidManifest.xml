@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="InnerclassSeparator">
-        <activity android:name=".Login">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action
                     android:name="android.intent.action.MAIN"
@@ -28,24 +28,32 @@
         </activity>
         <activity
             android:name=".Home"
-            android:windowSoftInputMode="stateVisible|adjustPan" />
+            android:windowSoftInputMode="stateVisible|adjustPan"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Register"
-            android:windowSoftInputMode="stateVisible|adjustPan" />
+            android:windowSoftInputMode="stateVisible|adjustPan"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name=".SplashScreen"
-            android:windowSoftInputMode="stateVisible|adjustPan" />
+            android:name=".Login"
+            android:windowSoftInputMode="stateVisible|adjustPan"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".Fragments.MainFragment"
             android:label="@string/title_activity_request_infos_fragment"
             android:theme="@style/AppTheme.NoActionBar"
-            tools:ignore="DuplicateActivity,InnerclassSeparator"></activity>
+            tools:ignore="DuplicateActivity,InnerclassSeparator"
+            android:screenOrientation="portrait"></activity>
 
-        <activity android:name=".menu_activities.about_us"/>
-        <activity android:name=".menu_activities.contact_us"/>
-        <activity android:name=".menu_activities.find_us_on_socialmedia"/>
-        <activity android:name=".menu_activities.how_to_use"/>
+        <activity android:name=".menu_activities.about_us"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".menu_activities.contact_us"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".menu_activities.find_us_on_socialmedia"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".menu_activities.how_to_use"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

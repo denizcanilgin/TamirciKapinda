@@ -1,11 +1,17 @@
 package com.example.mbahr.myapplication.menu_activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -15,6 +21,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mbahr.myapplication.Fragments.MainFragment;
+import com.example.mbahr.myapplication.Home;
+import com.example.mbahr.myapplication.Login;
 import com.example.mbahr.myapplication.R;
 
 public class contact_us extends AppCompatActivity {
@@ -22,12 +30,17 @@ public class contact_us extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     private String to = "denizcan277@gmail.com";
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_us);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        editor = preferences.edit();
 
         TextView To_Text = (TextView) findViewById(R.id.To_Text);
         To_Text.setText("Şu mail adresine gönderiliyor : " + to);
@@ -113,11 +126,58 @@ public class contact_us extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        if(mToggle.onOptionsItemSelected(item)){return true;}
-        return super.onOptionsItemSelected(item);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (mToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.exit_app) {
+
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(contact_us.this);
+            builder.setTitle(getResources().getString(R.string.app_name));
+            builder.setMessage("Çıkış Yapmak İstiyor musunuz ? ");
+
+            builder.setPositiveButton("TAMAM", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    editor.putBoolean("login", false);//uygulamaya tekrar girdiğinde kontrol için kullanılcak
+                    editor.commit();
+                    Intent i = new Intent(getApplicationContext(),Login.class);
+                    startActivity(i);
+                    finish();
+
+                }
+            });
+            builder.setNegativeButton("İPTAL", new DialogInterface.OnClickListener(){
+                public void onClick(DialogInterface dialog, int id) {
+
+
+
+                }
+            });
+
+
+
+
+
+            builder.show();
+
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
 
     public void OpenRequestInfoPage(View view) {

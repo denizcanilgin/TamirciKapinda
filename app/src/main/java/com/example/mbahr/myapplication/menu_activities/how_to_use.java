@@ -1,23 +1,32 @@
 package com.example.mbahr.myapplication.menu_activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 
-
 import com.example.mbahr.myapplication.Fragments.MainFragment;
+import com.example.mbahr.myapplication.Login;
 import com.example.mbahr.myapplication.R;
 
 public class how_to_use extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +40,9 @@ public class how_to_use extends AppCompatActivity {
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        editor = preferences.edit();
 
 
         NavigationView navigationView = findViewById(R.id.nav_menu);
@@ -86,11 +98,58 @@ public class how_to_use extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        if(mToggle.onOptionsItemSelected(item)){return true;}
-        return super.onOptionsItemSelected(item);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (mToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.exit_app) {
+
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(how_to_use.this);
+            builder.setTitle(getResources().getString(R.string.app_name));
+            builder.setMessage("Çıkış Yapmak İstiyor musunuz ? ");
+
+            builder.setPositiveButton("TAMAM", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    editor.putBoolean("login", false);//uygulamaya tekrar girdiğinde kontrol için kullanılcak
+                    editor.commit();
+                    Intent i = new Intent(getApplicationContext(),Login.class);
+                    startActivity(i);
+                    finish();
+
+                }
+            });
+            builder.setNegativeButton("İPTAL", new DialogInterface.OnClickListener(){
+                public void onClick(DialogInterface dialog, int id) {
+
+
+
+                }
+            });
+
+
+
+
+
+            builder.show();
+
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
 
     public void OpenRequestInfoPage(View view) {

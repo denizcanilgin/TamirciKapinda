@@ -12,6 +12,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!--<Spinner-->
+            <!--android:id="@+id/spinner_town"-->
+            <!--android:spinnerMode="dropdown"-->
+            <!--android:background="@drawable/rounded_white"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="80dp"></Spinner>-->
+
 
         <AutoCompleteTextView
             android:id="@+id/EnterYourProblem"
@@ -32,35 +39,6 @@
             android:paddingRight="10dp"
             android:paddingTop="10dp"
             android:textSize="14sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Arızanızın fotoğrafı varsa lütfen yükleyin."
-            android:textColor="@color/white" />
-
-        <Button
-
-            android:id="@+id/uploaded_image"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/reg_button3"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:text="FOTOĞRAF ÇEK/YÜKLE"
-            android:textColor="@color/white"
-            android:textStyle="normal" />
-
-
-        <ImageView
-            android:id="@+id/ivImage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center" />
 
 
     </LinearLayout>

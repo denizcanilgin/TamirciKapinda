@@ -193,10 +193,9 @@ public class FragmentPhotoRequest extends android.support.v4.app.Fragment {
     public String imageToString(Bitmap thumbnail) {
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+        thumbnail.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
         byte[] byt = byteArrayOutputStream.toByteArray();
         String base64String = Base64.encodeToString(byt, Base64.DEFAULT);
-        ;
 
         return base64String;
     }

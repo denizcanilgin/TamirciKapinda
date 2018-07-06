@@ -50,7 +50,7 @@ public class MainFragment extends AppCompatActivity {
         BackClick();
         BackToHomeClick();
 
-        preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());//preferences objesi
+        preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         editor = preferences.edit();
         globalVariable = (GlobalClass) getApplicationContext();
 

@@ -1,4 +1,4 @@
-package com.example.mbahr.myapplication.Fragments;
+package com.example.Inc.tamircikapinda.Fragments;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
 
-import com.example.mbahr.myapplication.R;
+import com.example.Inc.tamircikapinda.R;
 
 
 public class Fragment1 extends android.support.v4.app.Fragment {

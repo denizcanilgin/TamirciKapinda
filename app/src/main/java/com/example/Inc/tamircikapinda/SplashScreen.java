@@ -1,4 +1,4 @@
-package com.example.mbahr.myapplication;
+package com.example.Inc.tamircikapinda;
 
 import android.app.Activity;
 import android.content.Intent;

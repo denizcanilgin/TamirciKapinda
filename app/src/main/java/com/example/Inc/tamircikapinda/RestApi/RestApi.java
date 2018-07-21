@@ -1,6 +1,6 @@
-package com.example.mbahr.myapplication.RestApi;
+package com.example.Inc.tamircikapinda.RestApi;
 
-import com.example.mbahr.myapplication.Models.Sonuc;
+import com.example.Inc.tamircikapinda.Models.Sonuc;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -17,7 +17,7 @@ public interface RestApi {
 
     @FormUrlEncoded
     @POST("/arizakayit.php")
-    Call<Sonuc> problemrecord(@Field("email") String email, @Field("sifre") String sifre, @Field("problem") String problem, @Field("fotograf") String fotograf, @Field("adres") String adres, @Field("telefon") String telefon);
+    Call<Sonuc> problemrecord(@Field("email") String email, @Field("sifre") String sifre, @Field("problem") String problem, @Field("fotograf") String fotograf,@Field("fotoname") String fotoname, @Field("adres") String adres, @Field("telefon") String telefon);
 
     @GET("/login.php")
     Call<Sonuc> authenticate(@Query("email") String login_email, @Query("sifre") String login_sifre);

@@ -1,4 +1,4 @@
-package com.example.mbahr.myapplication.menu_activities;
+package com.example.Inc.tamircikapinda.menu_activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -18,10 +18,10 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 
-import com.example.mbahr.myapplication.Fragments.MainFragment;
-import com.example.mbahr.myapplication.Home;
-import com.example.mbahr.myapplication.Login;
-import com.example.mbahr.myapplication.R;
+import com.example.Inc.tamircikapinda.Fragments.MainFragment;
+import com.example.Inc.tamircikapinda.Home;
+import com.example.Inc.tamircikapinda.Login;
+import com.example.Inc.tamircikapinda.R;
 
 public class about_us extends AppCompatActivity {
 
@@ -58,11 +58,11 @@ public class about_us extends AppCompatActivity {
                         switch (id){
 
                             case R.id.text0:
-                                Intent intent_homePage = new Intent(getApplicationContext(),com.example.mbahr.myapplication.Home.class);
+                                Intent intent_homePage = new Intent(getApplicationContext(),com.example.Inc.tamircikapinda.Home.class);
                                 startActivity(intent_homePage);
 
                             case R.id.text1:
-                                Intent intent_howToUse = new Intent(getApplicationContext(),com.example.mbahr.myapplication.menu_activities.how_to_use.class);
+                                Intent intent_howToUse = new Intent(getApplicationContext(),com.example.Inc.tamircikapinda.menu_activities.how_to_use.class);
                                 startActivity(intent_howToUse);
                                 // Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
                                 break;
@@ -71,7 +71,7 @@ public class about_us extends AppCompatActivity {
                                 //Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.text3:
-                                Intent intent_contactUs = new Intent(getApplicationContext(),com.example.mbahr.myapplication.menu_activities.contact_us.class);
+                                Intent intent_contactUs = new Intent(getApplicationContext(),com.example.Inc.tamircikapinda.menu_activities.contact_us.class);
                                 startActivity(intent_contactUs);
                                // Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
                                 break;
@@ -80,7 +80,7 @@ public class about_us extends AppCompatActivity {
                                 break;
                             case R.id.text5:
                                 // Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
-                                Intent intent_socialMedia = new Intent(getApplicationContext(),com.example.mbahr.myapplication.menu_activities.find_us_on_socialmedia.class);
+                                Intent intent_socialMedia = new Intent(getApplicationContext(),com.example.Inc.tamircikapinda.menu_activities.find_us_on_socialmedia.class);
                                 startActivity(intent_socialMedia);
                                 break;
 

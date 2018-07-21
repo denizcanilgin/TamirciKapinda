@@ -1,4 +1,4 @@
-package com.example.mbahr.myapplication.menu_activities;
+package com.example.Inc.tamircikapinda.menu_activities;
 
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
@@ -20,10 +20,10 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 
-import com.example.mbahr.myapplication.Fragments.MainFragment;
-import com.example.mbahr.myapplication.Home;
-import com.example.mbahr.myapplication.Login;
-import com.example.mbahr.myapplication.R;
+import com.example.Inc.tamircikapinda.Fragments.MainFragment;
+import com.example.Inc.tamircikapinda.Home;
+import com.example.Inc.tamircikapinda.Login;
+import com.example.Inc.tamircikapinda.R;
 
 public class find_us_on_socialmedia extends AppCompatActivity {
 //
@@ -62,16 +62,16 @@ public class find_us_on_socialmedia extends AppCompatActivity {
                         switch (id){
 
                             case R.id.text0:
-                                Intent intent_HomePage = new Intent(getApplicationContext(),com.example.mbahr.myapplication.Home.class);
+                                Intent intent_HomePage = new Intent(getApplicationContext(),com.example.Inc.tamircikapinda.Home.class);
                                 startActivity(intent_HomePage);
                                 break;
                             case R.id.text1:
-                                Intent intent_howToUse = new Intent(getApplicationContext(),com.example.mbahr.myapplication.menu_activities.how_to_use.class);
+                                Intent intent_howToUse = new Intent(getApplicationContext(),com.example.Inc.tamircikapinda.menu_activities.how_to_use.class);
                                 startActivity(intent_howToUse);
                                 // Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.text2:
-                                Intent intent_aboutUs = new Intent(getApplicationContext(),com.example.mbahr.myapplication.menu_activities.about_us.class);
+                                Intent intent_aboutUs = new Intent(getApplicationContext(),com.example.Inc.tamircikapinda.menu_activities.about_us.class);
                                 startActivity(intent_aboutUs);
                                 //Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
                                 break;

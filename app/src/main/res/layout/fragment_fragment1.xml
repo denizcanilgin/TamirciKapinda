@@ -12,14 +12,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!--<Spinner-->
-            <!--android:id="@+id/spinner_town"-->
-            <!--android:spinnerMode="dropdown"-->
-            <!--android:background="@drawable/rounded_white"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="80dp"></Spinner>-->
-
-
         <AutoCompleteTextView
             android:id="@+id/EnterYourProblem"
             android:layout_width="match_parent"

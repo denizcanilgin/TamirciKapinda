@@ -1,4 +1,4 @@
-package com.example.mbahr.myapplication.Fragments;
+package com.example.Inc.tamircikapinda.Fragments;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -20,7 +20,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.mbahr.myapplication.R;
+import com.example.Inc.tamircikapinda.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -81,8 +81,7 @@ public class FragmentPhotoRequest extends android.support.v4.app.Fragment {
     }
 
     private void selectImage() {
-        final CharSequence[] items = {"Fotoğraf Çek", "Galeri den Seç",
-                "İptal"};
+        final CharSequence[] items = {"Fotoğraf Çek","İptal"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("Fotoğraf Ekle!");
@@ -95,11 +94,6 @@ public class FragmentPhotoRequest extends android.support.v4.app.Fragment {
                     userChoosenTask = "Fotoğraf Çek";
                     if (result)
                         cameraIntent();
-
-                } else if (items[item].equals("Galeri den Seç")) {
-                    userChoosenTask = "Galeri den Seç";
-                    if (result)
-                        galleryIntent();
 
                 } else if (items[item].equals("İptal")) {
                     dialog.dismiss();
@@ -136,10 +130,15 @@ public class FragmentPhotoRequest extends android.support.v4.app.Fragment {
     private void onCaptureImageResult(Intent data) {
         thumbnail = (Bitmap) data.getExtras().get("data");
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        thumbnail.compress(Bitmap.CompressFormat.PNG, 100, bytes);
+        thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
 
         File destination = new File(Environment.getExternalStorageDirectory(),
                 System.currentTimeMillis() + ".jpg");
+
+
+        String s = destination.toString();
+       String imagepath = s.substring(Math.max(s.length(),17) - 17);
+        Log.i("requestttt",s);
 
         FileOutputStream fo;
         try {
@@ -156,6 +155,7 @@ public class FragmentPhotoRequest extends android.support.v4.app.Fragment {
 
         String imageString = imageToString(thumbnail);
         GlobalClass.setImage(imageString);
+        GlobalClass.setImage_path(imagepath);
 
         uploaded_image.setVisibility(View.INVISIBLE);
         image_text.setVisibility(View.INVISIBLE);

@@ -1,4 +1,4 @@
-package com.example.mbahr.myapplication.Fragments;
+package com.example.Inc.tamircikapinda.Fragments;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,10 +16,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.mbahr.myapplication.Home;
-import com.example.mbahr.myapplication.Models.Sonuc;
-import com.example.mbahr.myapplication.R;
-import com.example.mbahr.myapplication.RestApi.ManagerAll;
+import com.example.Inc.tamircikapinda.Home;
+import com.example.Inc.tamircikapinda.Models.Sonuc;
+import com.example.Inc.tamircikapinda.R;
+import com.example.Inc.tamircikapinda.RestApi.ManagerAll;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -172,8 +172,9 @@ public class MainFragment extends AppCompatActivity {
         String m_adres = txtMesaj_TextChanged_3(adres);
         String m_telefon = txtMesaj_TextChanged_3(phoneNumber);
         String m_image = GlobalClass.getImage();
+        String m_image_path = GlobalClass.getImage_path();
 
-        Call<Sonuc> s = ManagerAll.getInstance().addProblem(m_email, m_password, m_problem, m_image, m_adres, m_telefon);
+        Call<Sonuc> s = ManagerAll.getInstance().addProblem(m_email, m_password, m_problem, m_image, m_image_path,m_adres, m_telefon);
         s.enqueue(new Callback<Sonuc>() {
             @Override
             public void onResponse(Call<Sonuc> call, Response<Sonuc> response) {

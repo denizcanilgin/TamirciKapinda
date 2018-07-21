@@ -1,4 +1,4 @@
-package com.example.mbahr.myapplication;
+package com.example.Inc.tamircikapinda;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,9 +13,9 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.mbahr.myapplication.Fragments.GlobalClass;
-import com.example.mbahr.myapplication.Models.Sonuc;
-import com.example.mbahr.myapplication.RestApi.ManagerAll;
+import com.example.Inc.tamircikapinda.Fragments.GlobalClass;
+import com.example.Inc.tamircikapinda.Models.Sonuc;
+import com.example.Inc.tamircikapinda.RestApi.ManagerAll;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -149,8 +149,10 @@ public class Login extends Activity {
             @Override
             public void onResponse(Call<Sonuc> call, Response<Sonuc> response) {
 
+                Log.i("ssssss",response.body().getResult());
                 Toast.makeText(Login.this, "" + response.body().getResult(), Toast.LENGTH_SHORT).show();
                 if (response.body().getResult().equals("Tebrikler Basariyla Giris Yaptiniz")) {
+
 
 
                     editor.putString("email", login_email);

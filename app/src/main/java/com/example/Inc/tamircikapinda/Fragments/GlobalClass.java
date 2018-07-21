@@ -1,4 +1,4 @@
-package com.example.mbahr.myapplication.Fragments;
+package com.example.Inc.tamircikapinda.Fragments;
 
 import android.app.Application;
 
@@ -12,6 +12,15 @@ public class GlobalClass extends Application {
     public  static  String register_email;
     public  static  String register_password;
     public  static  String image;
+    public  static  String image_path;
+
+    public static String getImage_path() {
+        return image_path;
+    }
+
+    public static void setImage_path(String image_path) {
+        GlobalClass.image_path = image_path;
+    }
 
     public static String getImage() {
         return image;

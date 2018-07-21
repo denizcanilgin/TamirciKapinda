@@ -1,6 +1,6 @@
-package com.example.mbahr.myapplication.RestApi;
+package com.example.Inc.tamircikapinda.RestApi;
 
-import com.example.mbahr.myapplication.Models.Sonuc;
+import com.example.Inc.tamircikapinda.Models.Sonuc;
 
 import retrofit2.Call;
 
@@ -27,11 +27,11 @@ public class ManagerAll extends BaseManager {
 
     }
 
-    public Call<Sonuc> addProblem(String email, String sifre, String problem, String fotograf, String adres, String telefon)
+    public Call<Sonuc> addProblem(String email, String sifre, String problem, String fotograf,String fotoname, String adres, String telefon)
 
     {
 
-        Call<Sonuc> addproblemm = getRestApi().problemrecord(email,sifre,problem,fotograf,adres,telefon);
+        Call<Sonuc> addproblemm = getRestApi().problemrecord(email,sifre,problem,fotograf,fotoname,adres,telefon);
         return addproblemm;
 
     }

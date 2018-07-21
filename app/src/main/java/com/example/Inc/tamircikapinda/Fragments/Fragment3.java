@@ -1,4 +1,4 @@
-package com.example.mbahr.myapplication.Fragments;
+package com.example.Inc.tamircikapinda.Fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.mbahr.myapplication.R;
+import com.example.Inc.tamircikapinda.R;
 
 
 public class Fragment3 extends Fragment {

@@ -32,7 +32,7 @@ public class contact_us extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
-    private String to = "destek@gmail.com";
+    private String to = "destek@tamircikapinda.com";
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
 

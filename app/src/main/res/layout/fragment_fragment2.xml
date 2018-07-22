@@ -11,6 +11,33 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Spinner
+            android:id="@+id/spinner_town1"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="0dp"
+            android:paddingEnd="18dp"
+            android:paddingStart="18dp"
+            android:spinnerMode="dropdown"
+            android:background="@drawable/rounded_white"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"></Spinner>
+
+        <Spinner
+            android:id="@+id/spinner_town2"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="0dp"
+            android:paddingEnd="18dp"
+            android:paddingStart="18dp"
+            android:spinnerMode="dropdown"
+            android:background="@drawable/rounded_white"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"></Spinner>
+
+
 
         <AutoCompleteTextView
             android:id="@+id/usersAdress"

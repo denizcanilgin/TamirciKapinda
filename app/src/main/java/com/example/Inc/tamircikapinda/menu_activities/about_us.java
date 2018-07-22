@@ -16,13 +16,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Toast;
-
+import android.webkit.WebView;
 
 import com.androidsx.rateme.OnRatingListener;
 import com.androidsx.rateme.RateMeDialog;
 import com.example.Inc.tamircikapinda.Fragments.MainFragment;
-import com.example.Inc.tamircikapinda.Home;
 import com.example.Inc.tamircikapinda.Login;
 import com.example.Inc.tamircikapinda.R;
 
@@ -44,6 +42,10 @@ public class about_us extends AppCompatActivity {
 
         preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());//preferences nesnesi oluşturuluyor ve prefernces referansına bağlanıyor
         editor = preferences.edit();
+
+        WebView webview = (WebView) findViewById(R.id.webview);
+        webview.getSettings().setJavaScriptEnabled(true);
+        webview.loadUrl("http://tamircikapinda.com/tamirci-kapinda-nedir/");
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();

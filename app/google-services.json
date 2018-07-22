@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "141600513130",
+    "firebase_url": "https://tamircikapinda-4df69.firebaseio.com",
+    "project_id": "tamircikapinda-4df69",
+    "storage_bucket": "tamircikapinda-4df69.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141600513130:android:e8495451de0233b4",
+        "android_client_info": {
+          "package_name": "com.example.Inc.tamircikapinda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "141600513130-ttsmkgvs5uh6afml9palvriac3nn5049.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.Inc.tamircikapinda",
+            "certificate_hash": "159d3950f9125c1f3361885b157864f9f745be56"
+          }
+        },
+        {
+          "client_id": "141600513130-6bmc50vtt94h9b4k9ras4nhhb1flod0u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-lNQXj4t91O3BcmwREWbLaOAO-WZ1jAw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "141600513130-6bmc50vtt94h9b4k9ras4nhhb1flod0u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

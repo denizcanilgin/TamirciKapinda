@@ -80,7 +80,7 @@
             android:layout_margin="10dp"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
-            android:onClick="OpenRequestInfoPage">
+            android:onClick="openFacebook">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -132,7 +132,7 @@
             android:layout_margin="10dp"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
-            android:onClick="OpenRequestInfoPage">
+            android:onClick="openTwitter">
 
             <LinearLayout
                 android:layout_width="match_parent"

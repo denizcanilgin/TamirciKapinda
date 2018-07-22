@@ -197,19 +197,31 @@ public class find_us_on_socialmedia extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openInstagram(){
-
-        Uri uri = Uri.parse("http://instagram.com/_u/denizcanilgin");
+    public void openInstagram(View view){
+        Uri uri = Uri.parse("http://instagram.com/_u/tamircikapinda");
         Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
-
         likeIng.setPackage("com.instagram.android");
-
         try {
             startActivity(likeIng);
         } catch (ActivityNotFoundException e) {
             startActivity(new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("http://instagram.com/denizcanilgin")));
+                    Uri.parse("http://instagram.com/tamircikapinda")));
         }
+    }
+    public void openFacebook(View view){
+        Uri uri = Uri.parse("https://www.facebook.com/tamircikapinda");
+        Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
+        likeIng.setPackage("com.instagram.android");
+        try {
+            startActivity(likeIng);
+        } catch (ActivityNotFoundException e) {
+            startActivity(new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("https://www.facebook.com/tamircikapinda")));
+        }
+    }
+    public void openTwitter(View view){
+
+        Toast.makeText(getApplicationContext(),"Hala bir Twitter Hesabımız Yok, TÜH!",0).show();
 
     }
 

@@ -109,7 +109,7 @@ public class Home extends AppCompatActivity implements GoogleApiClient.OnConnect
 
                                 break;
                             case R.id.text5:
-                                Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
+                                // Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
                                 Intent intent_find_us_on_socialmedia = new Intent(getApplicationContext(), com.example.Inc.tamircikapinda.menu_activities.find_us_on_socialmedia.class);
                                 startActivity(intent_find_us_on_socialmedia);
 

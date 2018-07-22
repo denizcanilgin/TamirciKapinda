@@ -20,4 +20,9 @@
     <color name="white">#FFFFFF</color>
     <color name="black_overlay">#66000000</color>
 
+    <color name="dialog_primary">#FF5722</color>
+    <color name="dialog_primary_dark">#E64A19</color>
+    <color name="dialog_primary_light">#fff</color>
+    <color name="dialog_text_foreground">@android:color/black</color>
+
 </resources>

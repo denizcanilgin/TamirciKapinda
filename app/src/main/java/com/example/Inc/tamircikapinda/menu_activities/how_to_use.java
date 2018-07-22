@@ -58,6 +58,8 @@ public class how_to_use extends AppCompatActivity {
 
                         switch (id){
 
+
+
                             case R.id.text0:
                                 Intent intent_HomePage = new Intent(getApplicationContext(),com.example.Inc.tamircikapinda.Home.class);
                                 startActivity(intent_HomePage);

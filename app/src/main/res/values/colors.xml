@@ -2,6 +2,7 @@
 <resources>
 
     <color name="red">#e81400</color>
+    <color name="fb">#415dae</color>
     <color name="black">#000000</color>
 
     <color name="colorPrimary">#e2574c</color>

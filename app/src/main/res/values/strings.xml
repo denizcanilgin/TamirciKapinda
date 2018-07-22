@@ -14,4 +14,8 @@
     <string name="navigation_drawer_open">Açık</string>
     <string name="title_activity_how_to_use">how_to_use</string>
     <string name="title_activity_find_us__on_socialmedia">find_us__on_socialmedia</string>
+    <!-- Button text -->
+    <string name="btn_logout_from_google">Logout from Google</string>
+    <string name="btn_revoke_access">Revoke Access</string>
+    <string name="loading">Loading...</string>
 </resources>

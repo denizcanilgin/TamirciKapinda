@@ -1,6 +1,7 @@
 package com.example.Inc.tamircikapinda.menu_activities;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.example.Inc.tamircikapinda.Fragments.MainFragment;
 import com.example.Inc.tamircikapinda.Login;
@@ -27,6 +29,8 @@ public class about_us extends AppCompatActivity {
     private ActionBarDrawerToggle mToggle;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
+    private ProgressDialog prg;
+    private WebView webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +44,13 @@ public class about_us extends AppCompatActivity {
         preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());//preferences nesnesi oluşturuluyor ve prefernces referansına bağlanıyor
         editor = preferences.edit();
 
-        WebView webview = (WebView) findViewById(R.id.webview);
-        webview.getSettings().setJavaScriptEnabled(true);
-        webview.loadUrl("http://tamircikapinda.com/tamirci-kapinda-nedir/");
+        webView =(WebView)findViewById(R.id.webview);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setDomStorageEnabled(true);
+        webView.setWebViewClient(new WebViewClient());
+
+        getWebview("http://tamircikapinda.com/tamirci-kapinda-nedir/");
+
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
@@ -99,6 +107,34 @@ public class about_us extends AppCompatActivity {
                         return true;
                     }
                 });
+
+    }
+
+    public void getWebview(String myurl)
+    {
+        prg = ProgressDialog.show(about_us.this, "Tamirci Kapinda", "Yükleniyor...", true);
+        webView.setWebViewClient(new WebViewClient()
+        {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+
+                prg.show();
+
+                return super.shouldOverrideUrlLoading(view, url);
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+
+                prg.dismiss();
+                view.getSettings().setJavaScriptEnabled(true);
+
+                super.onPageFinished(view, url);
+            }
+
+        });
+        webView.loadUrl(myurl);
+
 
     }
 

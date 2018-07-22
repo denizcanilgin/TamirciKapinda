@@ -15,7 +15,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import com.example.Inc.tamircikapinda.Fragments.MainFragment;
@@ -35,10 +34,6 @@ public class how_to_use extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_how_to_use);
 
-        myWebView = (WebView) findViewById(R.id.activity_main_webview);
-        WebSettings webSettings = myWebView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        myWebView.loadUrl("http://tamircikapinda.com/tamirci-kapinda-nedir/");
 
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         mDrawerLayout = findViewById(R.id.nav_menu_drawer_layout4);

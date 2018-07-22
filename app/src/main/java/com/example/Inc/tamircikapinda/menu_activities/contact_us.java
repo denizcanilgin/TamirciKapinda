@@ -32,7 +32,7 @@ public class contact_us extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
-    private String to = "destek@gmail.com";
+    private String to = "destek@tamircikapinda.com";
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
 
@@ -44,6 +44,7 @@ public class contact_us extends AppCompatActivity {
 
         preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         editor = preferences.edit();
+        //deniz
 
         TextView To_Text = (TextView) findViewById(R.id.To_Text);
         To_Text.setText("Şu mail adresine gönderiliyor : " + to);

@@ -44,7 +44,6 @@ public class contact_us extends AppCompatActivity {
 
         preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         editor = preferences.edit();
-        //deniz
 
         TextView To_Text = (TextView) findViewById(R.id.To_Text);
         To_Text.setText("Şu mail adresine gönderiliyor : " + to);
@@ -128,6 +127,7 @@ public class contact_us extends AppCompatActivity {
                 });
 
     }
+
 
     private void showCustomRateMeDialog() {
         new RateMeDialog.Builder(getPackageName(), getString(R.string.app_name))

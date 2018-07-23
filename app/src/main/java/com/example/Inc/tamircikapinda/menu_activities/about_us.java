@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Parcel;
 import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -19,6 +20,8 @@ import android.view.WindowManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.androidsx.rateme.OnRatingListener;
+import com.androidsx.rateme.RateMeDialog;
 import com.example.Inc.tamircikapinda.Fragments.MainFragment;
 import com.example.Inc.tamircikapinda.Login;
 import com.example.Inc.tamircikapinda.R;
@@ -86,7 +89,7 @@ public class about_us extends AppCompatActivity {
                                // Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.text4:
-                                //showCustomRateMeDialog();
+                                showCustomRateMeDialog();
                                 break;
                             case R.id.text5:
                                 // Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
@@ -112,7 +115,7 @@ public class about_us extends AppCompatActivity {
 
     public void getWebview(String myurl)
     {
-        prg = ProgressDialog.show(about_us.this, "Tamirci Kapinda", "Yükleniyor...", true);
+        prg = ProgressDialog.show(about_us.this, "Tamirci Kapında", "Yükleniyor...", true);
         webView.setWebViewClient(new WebViewClient()
         {
             @Override
@@ -138,35 +141,35 @@ public class about_us extends AppCompatActivity {
 
     }
 
-//    private void showCustomRateMeDialog() {
-//        new RateMeDialog.Builder(getPackageName(), getString(R.string.app_name))
-//                .setHeaderBackgroundColor(getResources().getColor(R.color.colorPrimary))
-//                .setBodyBackgroundColor(getResources().getColor(R.color.white))
-//                .setBodyTextColor(getResources().getColor(R.color.dialog_text_foreground))
-//                .enableFeedbackByEmail("email@example.com")
-//                .showAppIcon(R.mipmap.ic_launcher)
-//                .setShowShareButton(true)
-//                .setRateButtonBackgroundColor(getResources().getColor(R.color.colorPrimary))
-//                .setRateButtonPressedBackgroundColor(getResources().getColor(R.color.colorPrimary))
-//                .setOnRatingListener(new OnRatingListener() {
-//                    @Override
-//                    public void onRating(RatingAction action, float rating) {
-//
-//                    }
-//
-//                    @Override
-//                    public int describeContents() {
-//                        return 0;
-//                    }
-//
-//                    @Override
-//                    public void writeToParcel(Parcel dest, int flags) {
-//                        // Nothing to write
-//                    }
-//                })
-//                .build()
-//                .show(getFragmentManager(), "custom-dialog");
-//    }
+    private void showCustomRateMeDialog() {
+        new RateMeDialog.Builder(getPackageName(), getString(R.string.app_name))
+                .setHeaderBackgroundColor(getResources().getColor(R.color.colorPrimary))
+                .setBodyBackgroundColor(getResources().getColor(R.color.white))
+                .setBodyTextColor(getResources().getColor(R.color.dialog_text_foreground))
+                .enableFeedbackByEmail("email@example.com")
+                .showAppIcon(R.mipmap.ic_launcher)
+                .setShowShareButton(true)
+                .setRateButtonBackgroundColor(getResources().getColor(R.color.colorPrimary))
+                .setRateButtonPressedBackgroundColor(getResources().getColor(R.color.colorPrimary))
+                .setOnRatingListener(new OnRatingListener() {
+                    @Override
+                    public void onRating(RatingAction action, float rating) {
+
+                    }
+
+                    @Override
+                    public int describeContents() {
+                        return 0;
+                    }
+
+                    @Override
+                    public void writeToParcel(Parcel dest, int flags) {
+                        // Nothing to write
+                    }
+                })
+                .build()
+                .show(getFragmentManager(), "custom-dialog");
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

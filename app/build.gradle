@@ -11,7 +11,7 @@ android {
     compileSdkVersion 27
     buildToolsVersion "27.0.3"
     defaultConfig {
-        applicationId "com.example.Inc.tamircikapinda"
+        applicationId "com.gaun.Inc.tamircikapinda"
         minSdkVersion 15
         targetSdkVersion 27
         versionCode 1
@@ -46,4 +46,4 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
-apply plugin: 'com.google.gms.google-services'
+

@@ -1,4 +1,4 @@
-package com.example.Inc.tamircikapinda;
+package com.gaun.Inc.tamircikapinda;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,9 +12,9 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.Inc.tamircikapinda.Fragments.GlobalClass;
-import com.example.Inc.tamircikapinda.Models.Sonuc;
-import com.example.Inc.tamircikapinda.RestApi.ManagerAll;
+import com.gaun.Inc.tamircikapinda.Fragments.GlobalClass;
+import com.gaun.Inc.tamircikapinda.Models.Sonuc;
+import com.gaun.Inc.tamircikapinda.RestApi.ManagerAll;
 
 import retrofit2.Call;
 import retrofit2.Callback;

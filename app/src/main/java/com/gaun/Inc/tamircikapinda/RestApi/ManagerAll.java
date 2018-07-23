@@ -1,6 +1,6 @@
-package com.example.Inc.tamircikapinda.RestApi;
+package com.gaun.Inc.tamircikapinda.RestApi;
 
-import com.example.Inc.tamircikapinda.Models.Sonuc;
+import com.gaun.Inc.tamircikapinda.Models.Sonuc;
 
 import retrofit2.Call;
 

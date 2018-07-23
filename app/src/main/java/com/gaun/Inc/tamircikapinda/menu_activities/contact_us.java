@@ -1,11 +1,9 @@
-package com.example.Inc.tamircikapinda.menu_activities;
+package com.gaun.Inc.tamircikapinda.menu_activities;
 
 import android.app.AlertDialog;
-import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.preference.PreferenceManager;
@@ -18,41 +16,64 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
-
 
 import com.androidsx.rateme.OnRatingListener;
 import com.androidsx.rateme.RateMeDialog;
-import com.example.Inc.tamircikapinda.Fragments.MainFragment;
-import com.example.Inc.tamircikapinda.Home;
-import com.example.Inc.tamircikapinda.Login;
-import com.example.Inc.tamircikapinda.R;
+import com.gaun.Inc.tamircikapinda.Fragments.MainFragment;
+import com.gaun.Inc.tamircikapinda.Home;
+import com.gaun.Inc.tamircikapinda.Login;
+import com.gaun.Inc.tamircikapinda.R;
 
-public class find_us_on_socialmedia extends AppCompatActivity {
-//
+public class contact_us extends AppCompatActivity {
+
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
+    private String to = "destek@tamircikapinda.com";
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_find_us_on_socialmedia);
+        setContentView(R.layout.activity_contact_us);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
+        preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        editor = preferences.edit();
 
-        mDrawerLayout = findViewById(R.id.nav_menu_drawer_layout5);
+        TextView To_Text = (TextView) findViewById(R.id.To_Text);
+        To_Text.setText("Şu mail adresine gönderiliyor : " + to);
+
+
+        ((Button) findViewById(R.id.btnOK)).setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View v){
+                String topic = ((EditText) findViewById(R.id.userTopic)).getText().toString();
+                String message = ((EditText) findViewById(R.id.userMessage)).getText().toString();
+
+                Intent mail = new Intent(Intent.ACTION_SEND);
+                mail.putExtra(Intent.EXTRA_EMAIL, new String[]{to});
+                mail.putExtra(Intent.EXTRA_SUBJECT,topic);
+                mail.putExtra(Intent.EXTRA_TEXT,message);
+                mail.setType("message/rfc822");
+                startActivity(Intent.createChooser(mail,"Mail yoluyla gönderin: "));
+
+            }
+
+        });
+
+
+        mDrawerLayout = findViewById(R.id.nav_menu_drawer_layout3);
         mToggle = new ActionBarDrawerToggle(this,mDrawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
 
-        preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());//preferences nesnesi oluşturuluyor ve prefernces referansına bağlanıyor
-        editor = preferences.edit();
-
-       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         NavigationView navigationView = findViewById(R.id.nav_menu);
         navigationView.setNavigationItemSelectedListener(
@@ -65,28 +86,30 @@ public class find_us_on_socialmedia extends AppCompatActivity {
                         switch (id){
 
                             case R.id.text0:
-                                Intent intent_HomePage = new Intent(getApplicationContext(),com.example.Inc.tamircikapinda.Home.class);
-                                startActivity(intent_HomePage);
+                            Intent intent_HomePage = new Intent(getApplicationContext(),com.gaun.Inc.tamircikapinda.Home.class);
+                            startActivity(intent_HomePage);
                                 break;
                             case R.id.text1:
-                                Intent intent_howToUse = new Intent(getApplicationContext(),com.example.Inc.tamircikapinda.menu_activities.how_to_use.class);
+                                Intent intent_howToUse = new Intent(getApplicationContext(),com.gaun.Inc.tamircikapinda.menu_activities.how_to_use.class);
                                 startActivity(intent_howToUse);
                                 // Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.text2:
-                                Intent intent_aboutUs = new Intent(getApplicationContext(),com.example.Inc.tamircikapinda.menu_activities.about_us.class);
+                                Intent intent_aboutUs = new Intent(getApplicationContext(),com.gaun.Inc.tamircikapinda.menu_activities.about_us.class);
                                 startActivity(intent_aboutUs);
                                 //Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.text3:
                                 mDrawerLayout.closeDrawers();
-                                // Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
+                               // Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.text4:
-                               showCustomRateMeDialog();
+                                showCustomRateMeDialog();
                                 break;
                             case R.id.text5:
                                 // Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
+                                Intent intent_socialMedia = new Intent(getApplicationContext(),com.gaun.Inc.tamircikapinda.menu_activities.find_us_on_socialmedia.class);
+                                startActivity(intent_socialMedia);
                                 break;
 
                         }
@@ -136,7 +159,6 @@ public class find_us_on_socialmedia extends AppCompatActivity {
                 .show(getFragmentManager(), "custom-dialog");
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -156,7 +178,7 @@ public class find_us_on_socialmedia extends AppCompatActivity {
         if (id == R.id.exit_app) {
 
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(find_us_on_socialmedia.this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(contact_us.this);
             builder.setTitle(getResources().getString(R.string.app_name));
             builder.setMessage("Çıkış Yapmak İstiyor musunuz ? ");
 
@@ -195,37 +217,9 @@ public class find_us_on_socialmedia extends AppCompatActivity {
     public void OpenRequestInfoPage(View view) {
         Intent intent = new Intent(getApplicationContext(), MainFragment.class);
         startActivity(intent);
-    }
-
-    public void openInstagram(View view){
-        Uri uri = Uri.parse("http://instagram.com/_u/tamircikapinda");
-        Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
-        likeIng.setPackage("com.instagram.android");
-        try {
-            startActivity(likeIng);
-        } catch (ActivityNotFoundException e) {
-            startActivity(new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("http://instagram.com/tamircikapinda")));
-        }
-    }
-    public void openFacebook(View view){
-        Uri uri = Uri.parse("https://www.facebook.com/tamircikapinda");
-        Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
-        likeIng.setPackage("com.instagram.android");
-        try {
-            startActivity(likeIng);
-        } catch (ActivityNotFoundException e) {
-            startActivity(new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("https://www.facebook.com/tamircikapinda")));
-        }
-    }
-    public void openTwitter(View view){
-
-        Toast.makeText(getApplicationContext(),"Hala bir Twitter Hesabımız Yok, TÜH!",0).show();
-
-    }
+   }
 
 
 
-    }
 
+}

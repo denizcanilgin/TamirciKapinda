@@ -1,4 +1,4 @@
-package com.example.Inc.tamircikapinda.Fragments;
+package com.gaun.Inc.tamircikapinda.Fragments;
 
 import android.Manifest;
 import android.annotation.TargetApi;

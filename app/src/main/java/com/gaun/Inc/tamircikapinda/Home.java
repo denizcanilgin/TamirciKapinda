@@ -1,4 +1,4 @@
-package com.example.Inc.tamircikapinda;
+package com.gaun.Inc.tamircikapinda;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -23,7 +23,7 @@ import android.widget.Toast;
 
 import com.androidsx.rateme.OnRatingListener;
 import com.androidsx.rateme.RateMeDialog;
-import com.example.Inc.tamircikapinda.Fragments.MainFragment;
+import com.gaun.Inc.tamircikapinda.Fragments.MainFragment;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
@@ -89,17 +89,17 @@ public class Home extends AppCompatActivity implements GoogleApiClient.OnConnect
                                 break;
 
                             case R.id.text1:
-                                Intent intent_howToUse = new Intent(getApplicationContext(), com.example.Inc.tamircikapinda.menu_activities.how_to_use.class);
+                                Intent intent_howToUse = new Intent(getApplicationContext(), com.gaun.Inc.tamircikapinda.menu_activities.how_to_use.class);
                                 startActivity(intent_howToUse);
                                 // Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.text2:
-                                Intent intent_aboutUs = new Intent(getApplicationContext(), com.example.Inc.tamircikapinda.menu_activities.about_us.class);
+                                Intent intent_aboutUs = new Intent(getApplicationContext(), com.gaun.Inc.tamircikapinda.menu_activities.about_us.class);
                                 startActivity(intent_aboutUs);
                                 //Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.text3:
-                                Intent intent_contactUs = new Intent(getApplicationContext(), com.example.Inc.tamircikapinda.menu_activities.contact_us.class);
+                                Intent intent_contactUs = new Intent(getApplicationContext(), com.gaun.Inc.tamircikapinda.menu_activities.contact_us.class);
                                 startActivity(intent_contactUs);
                                 //Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
                                 break;
@@ -110,7 +110,7 @@ public class Home extends AppCompatActivity implements GoogleApiClient.OnConnect
                                 break;
                             case R.id.text5:
                                 // Toast.makeText(getApplicationContext(), "" + id, Toast.LENGTH_SHORT).show();
-                                Intent intent_find_us_on_socialmedia = new Intent(getApplicationContext(), com.example.Inc.tamircikapinda.menu_activities.find_us_on_socialmedia.class);
+                                Intent intent_find_us_on_socialmedia = new Intent(getApplicationContext(), com.gaun.Inc.tamircikapinda.menu_activities.find_us_on_socialmedia.class);
                                 startActivity(intent_find_us_on_socialmedia);
 
                                 break;

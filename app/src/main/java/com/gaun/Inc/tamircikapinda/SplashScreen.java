@@ -1,4 +1,4 @@
-package com.example.Inc.tamircikapinda;
+package com.gaun.Inc.tamircikapinda;
 
 import android.app.Activity;
 import android.content.Intent;

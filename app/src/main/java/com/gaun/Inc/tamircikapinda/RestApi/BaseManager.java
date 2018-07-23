@@ -1,4 +1,4 @@
-package com.example.Inc.tamircikapinda.RestApi;
+package com.gaun.Inc.tamircikapinda.RestApi;
 
 public class BaseManager {
 

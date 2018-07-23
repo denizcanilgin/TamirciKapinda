@@ -1,4 +1,4 @@
-package com.example.Inc.tamircikapinda.Fragments;
+package com.gaun.Inc.tamircikapinda.Fragments;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,10 +16,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.Inc.tamircikapinda.Home;
-import com.example.Inc.tamircikapinda.Models.Sonuc;
-import com.example.Inc.tamircikapinda.R;
-import com.example.Inc.tamircikapinda.RestApi.ManagerAll;
+import com.gaun.Inc.tamircikapinda.Home;
+import com.gaun.Inc.tamircikapinda.Models.Sonuc;
+import com.gaun.Inc.tamircikapinda.R;
+import com.gaun.Inc.tamircikapinda.RestApi.ManagerAll;
 
 import retrofit2.Call;
 import retrofit2.Callback;

@@ -1,4 +1,4 @@
-package com.example.Inc.tamircikapinda.Fragments;
+package com.gaun.Inc.tamircikapinda.Fragments;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -20,7 +20,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.Inc.tamircikapinda.R;
+import com.gaun.Inc.tamircikapinda.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

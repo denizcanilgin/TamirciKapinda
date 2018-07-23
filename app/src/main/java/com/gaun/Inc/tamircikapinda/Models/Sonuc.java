@@ -1,4 +1,4 @@
-package com.example.Inc.tamircikapinda.Models;
+package com.gaun.Inc.tamircikapinda.Models;
 
 public class Sonuc {
 
